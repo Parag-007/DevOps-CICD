@@ -12,7 +12,7 @@ RUN go get ./...
 COPY . .
 
 # Set the environment variables for PostgreSQL
-ENV DB_HOST=172.31.80.40
+ENV DB_HOST=172.31.94.156
 ENV DB_USER=postgresql
 ENV DB_PASSWORD=1234 
 ENV DB_NAME=postgres 

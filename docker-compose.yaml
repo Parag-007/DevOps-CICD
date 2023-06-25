@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: frontend:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+
+  backend:
+    image: backend:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+    links:
+      - db
+
+  db:
+    image: postgres:14.1-alpine
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    volumes: 
+      - db:/var/lib/postgres/data
+volumes:
+  db:
+    driver: local

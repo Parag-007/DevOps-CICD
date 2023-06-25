@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   frontend:
-    image: frontend:latest
+    image: 923722715314.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
     ports:
       - 3000:3000
     depends_on:
       - backend
 
   backend:
-    image: backend:latest
+    image: 923722715314.dkr.ecr.us-east-1.amazonaws.com/backend:latest
     ports:
       - 8080:8080
     depends_on:
